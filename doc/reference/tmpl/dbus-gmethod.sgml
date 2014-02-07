@@ -9,10 +9,12 @@ DBusGMethod
 
 </para>
 
+
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
+
 
 <!-- ##### SECTION Stability_Level ##### -->
 
@@ -68,7 +70,7 @@ DBusGMethod
 </para>
 
 @context: 
-@Varargs: 
+@...: 
 
 
 <!-- ##### FUNCTION dbus_g_method_return_error ##### -->

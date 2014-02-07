@@ -9,10 +9,12 @@ DBusGError
 
 </para>
 
+
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
+
 
 <!-- ##### SECTION Stability_Level ##### -->
 
@@ -78,15 +80,6 @@ DBusGError
 @Returns: 
 
 
-<!-- ##### FUNCTION dbus_g_error_quark ##### -->
-<para>
-
-</para>
-
-@void: 
-@Returns: 
-
-
 <!-- ##### FUNCTION dbus_g_error_domain_register ##### -->
 <para>
 
@@ -95,5 +88,12 @@ DBusGError
 @domain: 
 @default_iface: 
 @code_enum: 
+
+
+<!-- ##### MACRO DBUS_GERROR ##### -->
+<para>
+
+</para>
+
 
 

@@ -9,10 +9,12 @@ DBusGMessage
 
 </para>
 
+
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
+
 
 <!-- ##### SECTION Stability_Level ##### -->
 
@@ -24,6 +26,13 @@ DBusGMessage
 <para>
 
 </para>
+
+
+<!-- ##### MACRO DBUS_TYPE_G_MESSAGE ##### -->
+<para>
+
+</para>
+
 
 
 <!-- ##### FUNCTION dbus_g_message_ref ##### -->
