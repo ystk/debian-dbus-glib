@@ -1,3 +1,102 @@
+dbus-glib (0.100.2-1) unstable; urgency=low
+
+  * New upstream release
+    - respin upstream tarball to fix the HTML documentation (Closes: #701623)
+    - no source changes
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 25 Feb 2013 12:58:58 +0000
+
+dbus-glib (0.100.1-1) unstable; urgency=high
+
+  * New upstream security release
+    - fixes insufficient checking leading to authentication bypass in
+      pam_fprintd (CVE-2013-0292)
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 15 Feb 2013 17:03:52 +0000
+
+dbus-glib (0.100-1) unstable; urgency=low
+
+  * Update dbus-daemon introspection (from dbus 1.6.2)
+  * New upstream version
+    - fixes the build with -Werror=format-security (patch from Ubuntu)
+  * Include /usr/share/dpkg/default.mk for recommended build flags
+
+ -- Simon McVittie <smcv@debian.org>  Mon, 25 Jun 2012 18:25:27 +0100
+
+dbus-glib (0.98-1) unstable; urgency=low
+
+  * New upstream version
+    - fixes documentation
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 30 Sep 2011 16:31:37 +0100
+
+dbus-glib (0.96-1) unstable; urgency=low
+
+  * New upstream version
+    - remove patch from 0.94-2, fixed upstream
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 21 Sep 2011 17:40:25 +0100
+
+dbus-glib (0.94-4) unstable; urgency=low
+
+  * Override missing-pre-dependency-on-multiarch-support for the -dev
+    package, ftp-master doesn't have lintian 2.5.1 yet
+
+ -- Simon McVittie <smcv@debian.org>  Fri, 01 Jul 2011 07:55:05 +0100
+
+dbus-glib (0.94-3) unstable; urgency=low
+
+  * Install to multiarch paths
+  * Audit usage of "dbus" vs. "D-Bus" in the package description, and override
+    lintian false-positive: in this case we've been careful to say what we mean
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 30 Jun 2011 18:47:48 +0100
+
+dbus-glib (0.94-2) unstable; urgency=low
+
+  * Fix regression in marshalling objects as object paths (Closes: #628890)
+
+ -- Simon McVittie <smcv@debian.org>  Thu, 02 Jun 2011 17:14:14 +0100
+
+dbus-glib (0.94-1) unstable; urgency=low
+
+  * New upstream release
+  * Update Vcs-Git, Vcs-Browser to the form preferred by the Alioth admins
+  * Don't pass a version to dh_makeshlibs -V; the symbols file effectively
+    provides our dependency version now
+  * Use dh_autoreconf, and support parallel builds
+  * Ignore changes to files that are recreated by the build
+  * Standards-Version: 3.9.2 (no changes)
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 01 Jun 2011 19:26:23 +0100
+
+dbus-glib (0.92-1) unstable; urgency=low
+
+  [ Michael Biebl ]
+  * New upstream release.
+  * Switch to source format 3.0 (quilt)
+    - Add debian/source/format.
+    - Remove /usr/share/cdbs/1/rules/simple-patchsys.mk from debian/rules.
+  * Bump Standards-Version to 3.9.1. No further changes.
+  * Bump Build-Depends on libglib2.0-dev to (>= 2.26).
+  * Bump debhelper compatibility level to 8.
+  * New API additions for libdbus-glib-1-2
+    - Update debian/libdbus-glib-1-2.symbols.
+    - Bump dh_makeshlibs version to (>= 0.92).
+  * Switch from cdbs to dh
+    - Drop Build-Depends on cdbs.
+    - Convert debian/rules to use dh.
+  * debian/rules
+    - Enable gtk-doc documentation so it is created new during build.
+
+  [ Simon McVittie ]
+  * Configure for use with gbp-pq:
+    - remove update-patches.mk
+    - put unapply-patches in debian/source/local-options, so debuild on master
+      gets you back to master
+
+ -- Michael Biebl <biebl@debian.org>  Mon, 14 Mar 2011 11:23:20 +0100
+
 dbus-glib (0.88-2.1) unstable; urgency=high
 
   * Non-maintainer upload.

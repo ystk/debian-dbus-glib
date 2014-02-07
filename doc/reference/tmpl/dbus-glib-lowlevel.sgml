@@ -9,10 +9,12 @@ DBus GLib low level
 
 </para>
 
+
 <!-- ##### SECTION See_Also ##### -->
 <para>
 
 </para>
+
 
 <!-- ##### SECTION Stability_Level ##### -->
 
@@ -38,6 +40,15 @@ DBus GLib low level
 @context: 
 
 
+<!-- ##### FUNCTION dbus_connection_get_g_connection ##### -->
+<para>
+
+</para>
+
+@connection: 
+@Returns: 
+
+
 <!-- ##### FUNCTION dbus_server_setup_with_g_main ##### -->
 <para>
 
@@ -45,5 +56,19 @@ DBus GLib low level
 
 @server: 
 @context: 
+
+
+<!-- ##### MACRO DBUS_TYPE_CONNECTION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO DBUS_TYPE_MESSAGE ##### -->
+<para>
+
+</para>
+
 
 

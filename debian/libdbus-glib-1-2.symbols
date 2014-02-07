@@ -86,6 +86,7 @@ libdbus-glib-1.so.2 libdbus-glib-1-2 #MINVER#
  dbus_g_type_struct_set@Base 0.78
  dbus_g_type_struct_set_member@Base 0.78
  dbus_g_value_build_g_variant@Base 0.88
+ dbus_g_value_parse_g_variant@Base 0.92
  dbus_glib_global_set_disable_legacy_property_access@Base 0.88
  dbus_glib_internal_do_not_use_run_tests@Base 0.78
  dbus_message_get_g_type@Base 0.78
