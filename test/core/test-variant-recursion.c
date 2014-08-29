@@ -1,41 +1,52 @@
 #include <config.h>
 
 /* -*- mode: C; c-file-style: "gnu" -*- */
-#include <dbus/dbus-glib.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #include <glib.h>
 #include <glib-object.h>
+#include <dbus/dbus.h>
+#include <dbus/dbus-glib.h>
+
+#include "test/lib/util.h"
 
 static gboolean
 make_recursive_stringify_call (int recursion_depth, 
                                DBusGProxy *proxy, 
                                GError **error)
 {
-  char *out_str;
-
+  gchar *out_str;
+  gboolean ret;
   int i;
-  GValue *vals = g_new0 (GValue, recursion_depth+1);
+  GValue *val = g_new0 (GValue, 1);
 
-  for (i = recursion_depth-1; i >= 0; i--) 
+  g_value_init (val, G_TYPE_STRING);
+  g_value_set_string (val, "end of the line");
+
+  for (i = 0; i < recursion_depth; i++)
     {
-      GValue *curval = &(vals[i]);
-      g_value_init (curval, G_TYPE_VALUE);
+      GValue *tmp = g_new0 (GValue, 1);
+
+      g_value_init (tmp, G_TYPE_VALUE);
+      g_value_take_boxed (tmp, val);
+      val = tmp;
     }
-  for (i = 0; i < recursion_depth; i++) 
-    {
-      GValue *curval = &(vals[i]);
-      GValue *nextval = &(vals[i+1]);
-      g_value_take_boxed (curval, nextval);
-    }
-  g_value_init (&(vals[recursion_depth]), G_TYPE_STRING);
-  g_value_set_string (&(vals[recursion_depth]), "end of the line");
-  return dbus_g_proxy_call (proxy, "Stringify", error,
-                                G_TYPE_VALUE, &(vals[0]),
-                                G_TYPE_INVALID,
-                                G_TYPE_STRING, &out_str,
-                            G_TYPE_INVALID);
+
+  ret = dbus_g_proxy_call (proxy, "Stringify", error,
+                           G_TYPE_VALUE, val,
+                           G_TYPE_INVALID,
+                           G_TYPE_STRING, &out_str,
+                           G_TYPE_INVALID);
+
+  g_boxed_free (G_TYPE_VALUE, val);
+
+  /* the out parameter is meaningless if it failed */
+  if (ret)
+    g_free (out_str);
+
+  return ret;
 }
 
 int
@@ -52,7 +63,7 @@ main (int argc, char **argv)
   
   loop = g_main_loop_new (NULL, FALSE);
 
-  connection = dbus_g_bus_get (DBUS_BUS_SESSION, &error);
+  connection = dbus_g_bus_get_private (DBUS_BUS_SESSION, NULL, &error);
   if (connection == NULL)
     g_error ("Failed to open connection to bus: %s", error->message);
 
@@ -87,7 +98,11 @@ main (int argc, char **argv)
 
   g_object_unref (G_OBJECT (proxy));
 
+  test_run_until_disconnected (connection, NULL);
+  dbus_g_connection_unref (connection);
+
   g_main_loop_unref (loop);
+  dbus_shutdown ();
 
   return 0;
 }

@@ -1,3 +1,18 @@
+dbus-glib (0.102-1) unstable; urgency=low
+
+  * New upstream release
+    - update symbols file for new ABI
+  * Update dbus-daemon introspection data from dbus/1.8.0-1
+  * Bump debhelper compat level to 9
+    - use compilation options from dpkg-buildflags
+    - have compressed, multi-arch-safe debug symbols
+      - make the -dbg package Multi-Arch: same
+  * Redo debian/copyright to be machine-readable, and actually mention
+    the copyright holders
+  * Standards-Version: 3.9.5, no further changes required
+
+ -- Simon McVittie <smcv@debian.org>  Wed, 12 Feb 2014 15:21:55 +0000
+
 dbus-glib (0.100.2-1) unstable; urgency=low
 
   * New upstream release

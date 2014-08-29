@@ -6,14 +6,14 @@ Uploaders: Sjoerd Simons <sjoerd@debian.org>,
            Sebastian Dröge <slomo@debian.org>,
            Simon McVittie <smcv@debian.org>,
            Michael Biebl <biebl@debian.org>
-Build-Depends: debhelper (>= 8.1.3),
+Build-Depends: debhelper (>= 9),
                dh-autoreconf,
                dpkg-dev (>= 1.16.1),
                libglib2.0-dev (>= 2.26),
                libdbus-1-dev (>= 1.1),
                libexpat-dev,
                gtk-doc-tools (>= 1.4)
-Standards-Version: 3.9.2
+Standards-Version: 3.9.5
 Vcs-Git: git://anonscm.debian.org/pkg-utopia/dbus-glib.git
 Vcs-Browser: http://anonscm.debian.org/gitweb/?p=pkg-utopia/dbus-glib.git
 Homepage: http://www.freedesktop.org/wiki/Software/DBusBindings
@@ -76,6 +76,7 @@ Package: libdbus-glib-1-2-dbg
 Section: debug
 Priority: extra
 Architecture: any
+Multi-Arch: same
 Pre-Depends: ${misc:Pre-Depends}
 Depends: libdbus-glib-1-2 (= ${binary:Version}),
          ${misc:Depends}

@@ -705,6 +705,49 @@ dbus_g_connection_open (const gchar  *address,
 }
 
 /**
+ * dbus_g_connection_open_private:
+ * @address: address of the connection to open
+ * @context: the #GMainContext or %NULL for default context
+ * @error: address where an error can be returned.
+ *
+ * Returns a private connection to the given address; this
+ * connection does not talk to a bus daemon and thus the caller
+ * must set up any authentication by itself.  If the address
+ * refers to a message bus, the caller must call dbus_bus_register().
+ *
+ * (Internally, calls dbus_connection_open_private() then calls
+ * dbus_connection_setup_with_g_main() on the result.)
+ *
+ * Returns: (transfer full): a #DBusGConnection
+ */
+DBusGConnection *
+dbus_g_connection_open_private (const gchar  *address,
+                                GMainContext *context,
+                                GError      **error)
+{
+  DBusConnection *connection;
+  DBusError derror;
+
+  g_return_val_if_fail (error == NULL || *error == NULL, NULL);
+
+  _dbus_g_value_types_init ();
+
+  dbus_error_init (&derror);
+
+  connection = dbus_connection_open_private (address, &derror);
+  if (connection == NULL)
+    {
+      dbus_set_g_error (error, &derror);
+      dbus_error_free (&derror);
+      return NULL;
+    }
+
+  dbus_connection_setup_with_g_main (connection, context);
+
+  return DBUS_G_CONNECTION_FROM_CONNECTION (connection);
+}
+
+/**
  * dbus_g_bus_get:
  * @type: bus type
  * @error: address where an error can be returned.
@@ -786,45 +829,3 @@ dbus_g_bus_get_private (DBusBusType     type,
 
   return DBUS_G_CONNECTION_FROM_CONNECTION (connection);
 }
-
-#ifdef DBUS_BUILD_TESTS
-
-/*
- * Unit test for GLib main loop integration
- * Returns: %TRUE on success.
- */
-gboolean
-_dbus_gmain_test (const char *test_data_dir)
-{
-  GType type;
-  GType rectype;
-
-  g_type_init ();
-  _dbus_g_value_types_init ();
-
-  rectype = dbus_g_type_get_collection ("GArray", G_TYPE_UINT);
-  g_assert (rectype != G_TYPE_INVALID);
-  g_assert (!strcmp (g_type_name (rectype), "GArray_guint_"));
-
-  type = _dbus_gtype_from_signature ("au", TRUE);
-  g_assert (type == rectype);
-
-  rectype = dbus_g_type_get_map ("GHashTable", G_TYPE_STRING, G_TYPE_STRING);
-  g_assert (rectype != G_TYPE_INVALID);
-  g_assert (!strcmp (g_type_name (rectype), "GHashTable_gchararray+gchararray_"));
-
-  type = _dbus_gtype_from_signature ("a{ss}", TRUE);
-  g_assert (type == rectype);
-
-  type = _dbus_gtype_from_signature ("o", FALSE);
-  g_assert (type == DBUS_TYPE_G_OBJECT_PATH);
-  type = _dbus_gtype_from_signature ("o", TRUE);
-  g_assert (type == DBUS_TYPE_G_OBJECT_PATH);
-
-  type = _dbus_gtype_from_signature ("g", TRUE);
-  g_assert (type == DBUS_TYPE_G_SIGNATURE);
-
-  return TRUE;
-}
-
-#endif /* DBUS_BUILD_TESTS */

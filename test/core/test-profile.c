@@ -206,6 +206,8 @@ no_bus_thread_func (void *data)
       exit (1);
     }
 
+  dbus_connection_set_exit_on_disconnect (connection, FALSE);
+
   context = g_main_context_new ();
 
   cd.iterations = 1;
@@ -289,8 +291,7 @@ no_bus_init_server (ServerData       *sd)
   DBusError error;
 
   dbus_error_init (&error);
-  server = dbus_server_listen ("unix:tmpdir="DBUS_TEST_SOCKET_DIR,
-                               &error);
+  server = dbus_server_listen ("unix:tmpdir=/tmp", &error);
   if (server == NULL)
     {
       g_printerr ("Could not start server: %s\n",
@@ -376,6 +377,8 @@ with_bus_thread_func (void *data)
       dbus_error_free (&error);
       exit (1);
     }
+
+  dbus_connection_set_exit_on_disconnect (connection, FALSE);
 
   if (!dbus_bus_register (connection, &error))
     {
@@ -531,6 +534,8 @@ with_bus_init_server (ServerData       *sd)
                                                 g_free, NULL);
   
   connection = dbus_g_connection_get_connection (gconnection);
+
+  dbus_connection_set_exit_on_disconnect (connection, FALSE);
 
   dbus_bus_request_name (connection,
                          ECHO_SERVICE,
@@ -837,14 +842,6 @@ plain_sockets_init_server (ServerData *sd)
   _DBUS_ZERO (addr);
   addr.sun_family = AF_UNIX;
   
-#ifdef HAVE_ABSTRACT_SOCKETS
-  /* remember that abstract names aren't nul-terminated so we rely
-   * on sun_path being filled in with zeroes above.
-   */
-  addr.sun_path[0] = '\0'; /* this is what says "use abstract" */
-  strncpy (&addr.sun_path[1], path, _DBUS_MAX_SUN_PATH_LENGTH - 2);
-  /* _dbus_verbose_bytes (addr.sun_path, sizeof (addr.sun_path)); */
-#else /* HAVE_ABSTRACT_SOCKETS */
   {
     struct stat sb;
     
@@ -854,7 +851,6 @@ plain_sockets_init_server (ServerData *sd)
   }
 
   strncpy (addr.sun_path, path, _DBUS_MAX_SUN_PATH_LENGTH - 1);
-#endif /* ! HAVE_ABSTRACT_SOCKETS */
   
   if (bind (server->listen_fd, (struct sockaddr*) &addr, sizeof (addr)) < 0)
     {
@@ -964,17 +960,8 @@ plain_sockets_thread_func (void *data)
   _DBUS_ZERO (addr);
   addr.sun_family = AF_UNIX;
 
-#ifdef HAVE_ABSTRACT_SOCKETS
-  /* remember that abstract names aren't nul-terminated so we rely
-   * on sun_path being filled in with zeroes above.
-   */
-  addr.sun_path[0] = '\0'; /* this is what says "use abstract" */
-  strncpy (&addr.sun_path[1], plain_sockets_address, _DBUS_MAX_SUN_PATH_LENGTH - 2);
-  /* _dbus_verbose_bytes (addr.sun_path, sizeof (addr.sun_path)); */
-#else /* HAVE_ABSTRACT_SOCKETS */
   strncpy (addr.sun_path, plain_sockets_address, _DBUS_MAX_SUN_PATH_LENGTH - 1);
-#endif /* ! HAVE_ABSTRACT_SOCKETS */
-  
+
   if (connect (fd, (struct sockaddr*) &addr, sizeof (addr)) < 0)
     {      
       g_printerr ("Failed to connect to socket %s: %s",
@@ -1103,18 +1090,18 @@ print_result (const ProfileRunVTable *vtable,
 int
 main (int argc, char *argv[])
 {
+#if (!GLIB_CHECK_VERSION (2, 35, 1))
+  g_type_init ();
+#endif
+
 #ifndef TEST_PROFILE_DISABLED
   g_thread_init (NULL);
   dbus_g_thread_init ();
 
-#ifndef DBUS_DISABLE_ASSERT
+#ifndef G_DISABLE_ASSERT
   g_printerr ("You should probably --disable-asserts before you profile as they have noticeable overhead\n");
 #endif
-  
-#if DBUS_ENABLE_VERBOSE_MODE
-  g_printerr ("You should probably --disable-verbose-mode before you profile as verbose has noticeable overhead\n");
-#endif
-  
+
   payload = g_malloc (PAYLOAD_SIZE);
 
   /* The actual size of the DBusMessage on the wire, as of Nov 23 2004,

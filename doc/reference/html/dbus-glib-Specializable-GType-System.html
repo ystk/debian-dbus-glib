@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Specializable GType System</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="D-Bus GLib bindings - Reference Manual">
 <link rel="up" href="ch02.html" title="API Reference">
 <link rel="prev" href="dbus-glib-DBusGProxy.html" title="DBusGProxy">
 <link rel="next" href="dbus-glib-DBus-GLib-low-level.html" title="DBus GLib low level">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -239,8 +239,11 @@ the latter. I also need to add some examples.
 A library-user-supplied function, called for each element in the
 collection when <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-collection-value-iterate" title="dbus_g_type_collection_value_iterate ()"><code class="function">dbus_g_type_collection_value_iterate()</code></a> is called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -265,8 +268,11 @@ collection when <a class="link" href="dbus-glib-Specializable-GType-System.html#
 A library-user-supplied function, called for each key/value pair in the
 collection when <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-map-value-iterate" title="dbus_g_type_map_value_iterate ()"><code class="function">dbus_g_type_map_value_iterate()</code></a> is called.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>key_val</code></em> :</span></p></td>
@@ -297,8 +303,11 @@ collection when <a class="link" href="dbus-glib-Specializable-GType-System.html#
 <p>
 A context for appending. There are more fields, which are private.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> *<em class="structfield"><code><a name="DBusGTypeSpecializedAppendContext.val"></a>val</code></em>;</span></p></td>
@@ -318,8 +327,11 @@ A context for appending. There are more fields, which are private.
 <p>
 
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -343,8 +355,11 @@ Frees <em class="parameter"><code>val</code></em> according to <em class="parame
 can use information from <em class="parameter"><code>type</code></em> (for instance to free the contents of a
 container before freeing the actual container).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -368,8 +383,11 @@ Copies <em class="parameter"><code>src</code></em> according to <em class="param
 can use information from <em class="parameter"><code>type</code></em> (for instance to copy each element of a
 collection).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -408,8 +426,11 @@ user-defined collections, maps and structs. Exactly one of <em class="parameter"
 There are additional members, which are reserved for future expansion and
 must be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#NULL:CAPS"><code class="literal">NULL</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="dbus-glib-Specializable-GType-System.html#DBusGTypeSpecializedConstructor" title="DBusGTypeSpecializedConstructor ()"><span class="type">DBusGTypeSpecializedConstructor</span></a> <em class="structfield"><code><a name="DBusGTypeSpecializedVtable.constructor"></a>constructor</code></em>;</span></p></td>
@@ -445,8 +466,11 @@ must be <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macr
 Implements <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-collection-get-fixed" title="dbus_g_type_collection_get_fixed ()"><code class="function">dbus_g_type_collection_get_fixed()</code></a> for a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> with type
 <em class="parameter"><code>type</code></em>, containing <em class="parameter"><code>instance</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -487,8 +511,11 @@ Implements <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-
 Implements <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-collection-value-iterate" title="dbus_g_type_collection_value_iterate ()"><code class="function">dbus_g_type_collection_value_iterate()</code></a> for a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> with
 type <em class="parameter"><code>type</code></em>, containing <em class="parameter"><code>instance</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -523,8 +550,11 @@ Implements <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-
 <p>
 This function should use the <em class="parameter"><code>val</code></em> and <em class="parameter"><code>specialization_type</code></em> members of <em class="parameter"><code>ctx</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
@@ -549,8 +579,11 @@ Implements <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-
 <p>
 This function should use the <em class="parameter"><code>val</code></em> and <em class="parameter"><code>specialization_type</code></em> members of <em class="parameter"><code>ctx</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
 <td>an appending context returned by <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-specialized-init-append" title="dbus_g_type_specialized_init_append ()"><code class="function">dbus_g_type_specialized_init_append()</code></a>
@@ -574,8 +607,11 @@ A table of methods used to implement specialized collection behaviour
 on user-defined types. At least <em class="parameter"><code>iterator</code></em> and <em class="parameter"><code>append_func</code></em> must be
 implemented.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="dbus-glib-Specializable-GType-System.html#DBusGTypeSpecializedVtable" title="DBusGTypeSpecializedVtable"><span class="type">DBusGTypeSpecializedVtable</span></a> <em class="structfield"><code><a name="DBusGTypeSpecializedCollectionVtable.base-vtable"></a>base_vtable</code></em>;</span></p></td>
@@ -618,8 +654,11 @@ the <em class="parameter"><code>append_func</code></em>
 Implements <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-map-value-iterate" title="dbus_g_type_map_value_iterate ()"><code class="function">dbus_g_type_map_value_iterate()</code></a> for a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> with
 type <em class="parameter"><code>type</code></em>, containing <em class="parameter"><code>instance</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -656,8 +695,11 @@ Implements <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-
 This function should use the <em class="parameter"><code>val</code></em> and <em class="parameter"><code>specialization_type</code></em> members of <em class="parameter"><code>ctx</code></em>,
 and replace any existing value with key equal to <em class="parameter"><code>key</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
@@ -688,8 +730,11 @@ and replace any existing value with key equal to <em class="parameter"><code>key
 A table of methods used to implement specialized collection behaviour
 on user-defined types. Both methods must be implemented.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="dbus-glib-Specializable-GType-System.html#DBusGTypeSpecializedVtable" title="DBusGTypeSpecializedVtable"><span class="type">DBusGTypeSpecializedVtable</span></a> <em class="structfield"><code><a name="DBusGTypeSpecializedMapVtable.base-vtable"></a>base_vtable</code></em>;</span></p></td>
@@ -720,8 +765,11 @@ on user-defined types. Both methods must be implemented.
 Implements <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-struct-get-member" title="dbus_g_type_struct_get_member ()"><code class="function">dbus_g_type_struct_get_member()</code></a> for a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> with type <em class="parameter"><code>type</code></em>,
 containing <em class="parameter"><code>instance</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -762,8 +810,11 @@ member of <em class="parameter"><code>type</code></em>
 Implements <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-struct-set-member" title="dbus_g_type_struct_set_member ()"><code class="function">dbus_g_type_struct_set_member()</code></a> for a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a> with type <em class="parameter"><code>type</code></em>,
 containing <em class="parameter"><code>instance</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -805,8 +856,11 @@ member of <em class="parameter"><code>type</code></em>
 A table of methods used to implement specialized collection behaviour
 on user-defined types. Both methods must be implemented.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><a class="link" href="dbus-glib-Specializable-GType-System.html#DBusGTypeSpecializedVtable" title="DBusGTypeSpecializedVtable"><span class="type">DBusGTypeSpecializedVtable</span></a> <em class="structfield"><code><a name="DBusGTypeSpecializedStructVtable.base-vtable"></a>base_vtable</code></em>;</span></p></td>
@@ -832,8 +886,11 @@ on user-defined types. Both methods must be implemented.
 Gets a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> for a particular collection instance, 
 creating the type if not already created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -861,8 +918,11 @@ creating the type if not already created.
 Gets a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> for a particular map instance,
 creating the type if not already created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -895,8 +955,11 @@ creating the type if not already created.
 Gets a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> for a particular struct instance,
 creating the type if not already created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -927,8 +990,11 @@ creating the type if not already created.
 Varags methsod to get a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> for a particular struct instance,
 creating the type if not already created.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>container</code></em> :</span></p></td>
@@ -957,8 +1023,11 @@ creating the type if not already created.
 <p>
 Tests if a given GType is a collection.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gtype</code></em> :</span></p></td>
@@ -979,8 +1048,11 @@ Tests if a given GType is a collection.
 Tests if a given GType is a map,
 i.e. it was created with <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-get-map" title="dbus_g_type_get_map ()"><code class="function">dbus_g_type_get_map()</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gtype</code></em> :</span></p></td>
@@ -1001,8 +1073,11 @@ i.e. it was created with <a class="link" href="dbus-glib-Specializable-GType-Sys
 Tests if a given GType is a struct,
 i.e. it was created with <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-get-struct" title="dbus_g_type_get_struct ()"><code class="function">dbus_g_type_get_struct()</code></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gtype</code></em> :</span></p></td>
@@ -1024,8 +1099,11 @@ i.e. it was created with <a class="link" href="dbus-glib-Specializable-GType-Sys
 Return the type of each element in collections of type <em class="parameter"><code>gtype</code></em>.
 It is an error to call this function on a non-collection type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gtype</code></em> :</span></p></td>
@@ -1048,8 +1126,11 @@ It is an error to call this function on a non-collection type.
 Return the type of the keys in maps of type <em class="parameter"><code>gtype</code></em>.
 It is an error to call this function on a non-map type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gtype</code></em> :</span></p></td>
@@ -1072,8 +1153,11 @@ It is an error to call this function on a non-map type.
 Return the type of the values in maps of type <em class="parameter"><code>gtype</code></em>.
 It is an error to call this function on a non-map type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gtype</code></em> :</span></p></td>
@@ -1095,8 +1179,11 @@ It is an error to call this function on a non-map type.
 Get the type of a member of a specialized struct.
 It is an error to call this function on a non-struct type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gtype</code></em> :</span></p></td>
@@ -1124,8 +1211,11 @@ or <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Informa
 Get the number of members in a specialized struct.
 It is an error to call this function on a non-struct type.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gtype</code></em> :</span></p></td>
@@ -1149,8 +1239,11 @@ GType. E.g. If the given type was created by
 dbus_g_type_get_collection("GArray", G_TYPE_INT), 
 then this will return a GArray with element_size of sizeof(int)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gtype</code></em> :</span></p></td>
@@ -1174,8 +1267,11 @@ then this will return a GArray with element_size of sizeof(int)
 Create a new context for adding elements to a collection or key/value pairs 
 to a map. You generally don't need or want to use this..
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1197,8 +1293,11 @@ to a map. You generally don't need or want to use this..
 <p>
 Appends a given element to the end of a collection.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
@@ -1220,8 +1319,11 @@ for a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-v
 <p>
 Finish appending elements to a given collection
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
 <td>a context created by <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-specialized-init-append" title="dbus_g_type_specialized_init_append ()"><code class="function">dbus_g_type_specialized_init_append()</code></a>
@@ -1238,8 +1340,11 @@ for a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-v
 <p>
 Inserts the given key/value pair into the map instance.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>ctx</code></em> :</span></p></td>
@@ -1283,8 +1388,11 @@ collection, or on a collection that does not have a <em class="parameter"><code>
 Specialized <a href="http://library.gnome.org/devel/glib/unstable/glib-Arrays.html#GArray"><span class="type">GArray</span></a>s are the only types provided by dbus-glib that
 can be used with this function; user-defined types might also work.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1323,8 +1431,11 @@ The function is passed a <a href="http://library.gnome.org/devel/gobject/unstabl
 <em class="parameter"><code>user_data</code></em> parameter. The collection may not be modified while iterating over 
 it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1354,8 +1465,11 @@ The function is passed two GValues containing the key/value pair and the given
 <em class="parameter"><code>user_data</code></em> parameter. The map may not be modified while iterating over 
 it.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1384,8 +1498,11 @@ Fetches a given member of a given struct instance. <em class="parameter"><code>d
 was the correct type for that member, e.g. as returned by 
 <em class="parameter"><code>dbus_g_type_get_struct_member_type</code></em>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1417,8 +1534,11 @@ was the correct type for that member, e.g. as returned by
 Sets a given member of a struct to a new value. The type of <em class="parameter"><code>src</code></em> must match
 the existing type of <em class="parameter"><code>member</code></em> member of the struct.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1450,8 +1570,11 @@ the existing type of <em class="parameter"><code>member</code></em> member of th
 Collects the selected values of this struct into the return locations
 provided.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1485,8 +1608,11 @@ by <code class="literal">G_MAXUINT</code>
 <p>
 Sets the selected members of the struct in <em class="parameter"><code>value</code></em>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1532,8 +1658,11 @@ automatically whenever necessary.
 <p>
 Defines a new collection container.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -1559,8 +1688,11 @@ Defines a new collection container.
 <p>
 Defines a new map container.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -1585,8 +1717,11 @@ Defines a new map container.
 <p>
 Peek the vtable for a given map specialization
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>map_type</code></em> :</span></p></td>
@@ -1607,8 +1742,11 @@ Peek the vtable for a given map specialization
 <p>
 Peek the vtable for a given collection specialization
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>collection_type</code></em> :</span></p></td>
@@ -1629,8 +1767,11 @@ Peek the vtable for a given collection specialization
 <p>
 Peek the vtable for a given struct specialization
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>struct_type</code></em> :</span></p></td>
@@ -1652,8 +1793,11 @@ Peek the vtable for a given struct specialization
 <p>
 Defines a new struct container.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
@@ -1684,8 +1828,11 @@ object path etc.) or a specialized container registered with
 <a class="link" href="dbus-glib-Specializable-GType-System.html#dbus-g-type-get-struct" title="dbus_g_type_get_struct ()"><code class="function">dbus_g_type_get_struct()</code></a>. Providing any other type is a programming error
 (including as a child type).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
@@ -1712,8 +1859,11 @@ Deserialize <em class="parameter"><code>variant</code></em> and put an equivalen
 It is an error if <em class="parameter"><code>variant</code></em> contains any <a href="http://library.gnome.org/devel/glib/unstable/glib-GVariant.html#GVariant"><span class="type">GVariant</span></a> extensions not supported
 by dbus-glib, including handles (file descriptor passing) and 'maybe' types.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>variant</code></em> :</span></p></td>
@@ -1846,8 +1996,11 @@ copied with <a href="http://library.gnome.org/devel/glib/unstable/glib-String-Ut
 but have a distinct boxed type to allow them to be distinguished when
 stored in a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a type derived from <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-BOXED:CAPS"><code class="literal">G_TYPE_BOXED</code></a>
@@ -1882,8 +2035,11 @@ copied with <a href="http://library.gnome.org/devel/glib/unstable/glib-String-Ut
 but have a distinct boxed type to allow them to be distinguished when
 stored in a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Generic-values.html#GValue"><span class="type">GValue</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>a type derived from <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#G-TYPE-BOXED:CAPS"><code class="literal">G_TYPE_BOXED</code></a>
@@ -1895,6 +2051,6 @@ stored in a <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Gen
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.19</div>
 </body>
 </html>

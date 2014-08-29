@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>DBusGConnection</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="D-Bus GLib bindings - Reference Manual">
 <link rel="up" href="ch02.html" title="API Reference">
 <link rel="prev" href="ch02.html" title="API Reference">
 <link rel="next" href="dbus-glib-DBus-GObject-related-functions.html" title="DBus GObject related functions">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -92,8 +92,11 @@ libdbus.
 <p>
 Expands to a function call returning the boxed <a href="http://library.gnome.org/devel/gobject/unstable/gobject-Type-Information.html#GType"><span class="type">GType</span></a> of a <a class="link" href="dbus-glib-DBusGConnection.html#DBusGConnection" title="DBusGConnection"><span class="type">DBusGConnection</span></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
 <td>the GLib type</td>
@@ -113,8 +116,11 @@ shared with other callers of this function.
 (Internally, calls <code class="function">dbus_bus_get()</code> then calls
 <a class="link" href="dbus-glib-DBus-GLib-low-level.html#dbus-connection-setup-with-g-main" title="dbus_connection_setup_with_g_main ()"><code class="function">dbus_connection_setup_with_g_main()</code></a> on the result.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -146,8 +152,11 @@ Internally this function calls <code class="function">dbus_bus_get_private()</co
 <a class="link" href="dbus-glib-DBus-GLib-low-level.html#dbus-connection-setup-with-g-main" title="dbus_connection_setup_with_g_main ()"><code class="function">dbus_connection_setup_with_g_main()</code></a> on the result; see the documentation
 of the former function for more information on private connections.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
@@ -191,8 +200,11 @@ Returns a connection to the given address.
 (Internally, calls <code class="function">dbus_connection_open()</code> then calls
 <a class="link" href="dbus-glib-DBus-GLib-low-level.html#dbus-connection-setup-with-g-main" title="dbus_connection_setup_with_g_main ()"><code class="function">dbus_connection_setup_with_g_main()</code></a> on the result.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>address</code></em> :</span></p></td>
@@ -216,8 +228,11 @@ Returns a connection to the given address.
 <p>
 Increment refcount on a <a class="link" href="dbus-glib-DBusGConnection.html#DBusGConnection" title="DBusGConnection"><span class="type">DBusGConnection</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -237,8 +252,11 @@ Increment refcount on a <a class="link" href="dbus-glib-DBusGConnection.html#DBu
 <p>
 Decrement refcount on a <a class="link" href="dbus-glib-DBusGConnection.html#DBusGConnection" title="DBusGConnection"><span class="type">DBusGConnection</span></a>
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
 <td>the connection to unref</td>
@@ -252,8 +270,11 @@ Decrement refcount on a <a class="link" href="dbus-glib-DBusGConnection.html#DBu
 <p>
 Blocks until outgoing calls and signal emissions have been sent.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody><tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
 <td>the <a class="link" href="dbus-glib-DBusGConnection.html#DBusGConnection" title="DBusGConnection"><span class="type">DBusGConnection</span></a> to flush</td>
@@ -268,8 +289,11 @@ Blocks until outgoing calls and signal emissions have been sent.
 Get the <span class="type">DBusConnection</span> corresponding to this <a class="link" href="dbus-glib-DBusGConnection.html#DBusGConnection" title="DBusGConnection"><span class="type">DBusGConnection</span></a>.
 The return value does not have its refcount incremented.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>gconnection</code></em> :</span></p></td>
@@ -304,8 +328,11 @@ is used.
 Note: If an object is registered multiple times, the first registration
 takes priority for cases such as turning an object into an object path.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -333,8 +360,11 @@ Removes <em class="parameter"><code>object</code></em> from any object paths at 
 <em class="parameter"><code>connection</code></em>. Properties, methods, and signals
 of the object can no longer be accessed remotely.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -355,8 +385,11 @@ of the object can no longer be accessed remotely.
 <p>
 FIXME
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>connection</code></em> :</span></p></td>
@@ -383,6 +416,6 @@ FIXME
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.19</div>
 </body>
 </html>

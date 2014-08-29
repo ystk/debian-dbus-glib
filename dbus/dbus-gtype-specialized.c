@@ -1694,9 +1694,15 @@ dbus_g_value_build_g_variant (const GValue *value)
   else if (type == G_TYPE_DOUBLE)
     return g_variant_new_double (g_value_get_double (value));
   else if (type == G_TYPE_STRING)
-    return g_variant_new_string (g_value_get_string (value));
+    {
+      const gchar *str = g_value_get_string (value);
+      return g_variant_new_string ((str != NULL) ? str : "");
+    }
   else if (type == G_TYPE_STRV)
-    return g_variant_new_strv (g_value_get_boxed (value), -1);
+    {
+      const gchar * const *strv = g_value_get_boxed (value);
+      return g_variant_new_strv (strv, (strv != NULL) ? -1 : 0);
+    }
   else if (type == DBUS_TYPE_G_OBJECT_PATH)
     return g_variant_new_object_path (g_value_get_boxed (value));
   else if (type == DBUS_TYPE_G_SIGNATURE)

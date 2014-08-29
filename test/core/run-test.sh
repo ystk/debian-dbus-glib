@@ -43,12 +43,14 @@ else
   if test x$DBUS_TEST_MONITOR != x; then
     dbus-monitor --session &
   fi
+  ${DBUS_TOP_BUILDDIR}/libtool --mode=execute $DEBUG $DBUS_TOP_BUILDDIR/test/core/test-shared-bus || die "test-shared-bus failed"
   ${DBUS_TOP_BUILDDIR}/libtool --mode=execute $DEBUG $DBUS_TOP_BUILDDIR/test/core/test-types || die "test-types failed"
   ${DBUS_TOP_BUILDDIR}/libtool --mode=execute $DEBUG $DBUS_TOP_BUILDDIR/test/core/test-registrations || die "test-registrations failed"
   ${DBUS_TOP_BUILDDIR}/libtool --mode=execute $DEBUG $DBUS_TOP_BUILDDIR/test/core/test-dbus-glib || die "test-dbus-glib failed"
   ${DBUS_TOP_BUILDDIR}/libtool --mode=execute $DEBUG $DBUS_TOP_BUILDDIR/test/core/test-variant-recursion || die "test-variant-recursion failed"
   ${DBUS_TOP_BUILDDIR}/libtool --mode=execute $DEBUG $DBUS_TOP_BUILDDIR/test/core/test-gvariant || die "test-gvariant failed"
   ${DBUS_TOP_BUILDDIR}/libtool --mode=execute $DEBUG $DBUS_TOP_BUILDDIR/test/core/test-30574 || die "test-30574 failed"
+  ${DBUS_TOP_BUILDDIR}/libtool --mode=execute $DEBUG $DBUS_TOP_BUILDDIR/test/core/test-private || die "test-private failed"
   ${DBUS_TOP_BUILDDIR}/libtool --mode=execute $DEBUG $DBUS_TOP_BUILDDIR/test/core/test-error-mapping || die "test-error-mapping failed"
   ${DBUS_TOP_BUILDDIR}/libtool --mode=execute $DEBUG $DBUS_TOP_BUILDDIR/test/core/test-peer-on-bus || die "test-peer-on-bus failed"
 fi

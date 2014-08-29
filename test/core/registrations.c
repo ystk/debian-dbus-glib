@@ -42,6 +42,8 @@
 
 #include "my-object.h"
 
+#include "test/lib/util.h"
+
 GMainLoop *loop = NULL;
 
 typedef struct {
@@ -89,13 +91,13 @@ teardown (Fixture *f,
    * in test_lookup() */
   if (f->bus != NULL)
     {
-      dbus_connection_close (dbus_g_connection_get_connection (f->bus));
+      test_run_until_disconnected (f->bus, NULL);
       dbus_g_connection_unref (f->bus);
     }
 
   if (f->bus2 != NULL)
     {
-      dbus_connection_close (dbus_g_connection_get_connection (f->bus2));
+      test_run_until_disconnected (f->bus2, NULL);
       dbus_g_connection_unref (f->bus2);
     }
 
@@ -107,6 +109,8 @@ teardown (Fixture *f,
   /* This is safe to call on an initialized-but-unset DBusError, a bit like
    * g_clear_error */
   dbus_error_free (&f->dbus_error);
+
+  dbus_shutdown ();
 }
 
 static void
@@ -286,7 +290,6 @@ static void
 test_clean_slate (Fixture *f,
     gconstpointer test_data G_GNUC_UNUSED)
 {
-  DBusError e;
   dbus_bool_t mem;
 
   dbus_bus_add_match (dbus_g_connection_get_connection (f->bus),
@@ -415,8 +418,6 @@ test_marshal_object (Fixture *f,
 int
 main (int argc, char **argv)
 {
-  loop = g_main_loop_new (NULL, FALSE);
-
   g_type_init ();
   g_log_set_always_fatal (G_LOG_LEVEL_WARNING | G_LOG_LEVEL_CRITICAL);
   dbus_g_type_specialized_init ();

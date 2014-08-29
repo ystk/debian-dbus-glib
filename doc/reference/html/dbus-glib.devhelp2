@@ -148,6 +148,39 @@
     <keyword type="function" name="dbus_server_setup_with_g_main ()" link="dbus-glib-DBus-GLib-low-level.html#dbus-server-setup-with-g-main"/>
     <keyword type="macro" name="DBUS_TYPE_CONNECTION" link="dbus-glib-DBus-GLib-low-level.html#DBUS-TYPE-CONNECTION:CAPS"/>
     <keyword type="macro" name="DBUS_TYPE_MESSAGE" link="dbus-glib-DBus-GLib-low-level.html#DBUS-TYPE-MESSAGE:CAPS"/>
-    <keyword type="" name="Options" link="dbus-binding-tool.html#idp4772416"/>
+    <keyword type="" name="Options" link="dbus-binding-tool.html#id-1.4.2.5.3"/>
+    <keyword type="constant" name="DBUS_GERROR_FAILED" link="dbus-glib-DBusGError.html#DBUS-GERROR-FAILED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_NO_MEMORY" link="dbus-glib-DBusGError.html#DBUS-GERROR-NO-MEMORY:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_SERVICE_UNKNOWN" link="dbus-glib-DBusGError.html#DBUS-GERROR-SERVICE-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_NAME_HAS_NO_OWNER" link="dbus-glib-DBusGError.html#DBUS-GERROR-NAME-HAS-NO-OWNER:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_NO_REPLY" link="dbus-glib-DBusGError.html#DBUS-GERROR-NO-REPLY:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_IO_ERROR" link="dbus-glib-DBusGError.html#DBUS-GERROR-IO-ERROR:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_BAD_ADDRESS" link="dbus-glib-DBusGError.html#DBUS-GERROR-BAD-ADDRESS:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_NOT_SUPPORTED" link="dbus-glib-DBusGError.html#DBUS-GERROR-NOT-SUPPORTED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_LIMITS_EXCEEDED" link="dbus-glib-DBusGError.html#DBUS-GERROR-LIMITS-EXCEEDED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_ACCESS_DENIED" link="dbus-glib-DBusGError.html#DBUS-GERROR-ACCESS-DENIED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_AUTH_FAILED" link="dbus-glib-DBusGError.html#DBUS-GERROR-AUTH-FAILED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_NO_SERVER" link="dbus-glib-DBusGError.html#DBUS-GERROR-NO-SERVER:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_TIMEOUT" link="dbus-glib-DBusGError.html#DBUS-GERROR-TIMEOUT:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_NO_NETWORK" link="dbus-glib-DBusGError.html#DBUS-GERROR-NO-NETWORK:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_ADDRESS_IN_USE" link="dbus-glib-DBusGError.html#DBUS-GERROR-ADDRESS-IN-USE:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_DISCONNECTED" link="dbus-glib-DBusGError.html#DBUS-GERROR-DISCONNECTED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_INVALID_ARGS" link="dbus-glib-DBusGError.html#DBUS-GERROR-INVALID-ARGS:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_FILE_NOT_FOUND" link="dbus-glib-DBusGError.html#DBUS-GERROR-FILE-NOT-FOUND:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_FILE_EXISTS" link="dbus-glib-DBusGError.html#DBUS-GERROR-FILE-EXISTS:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_UNKNOWN_METHOD" link="dbus-glib-DBusGError.html#DBUS-GERROR-UNKNOWN-METHOD:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_TIMED_OUT" link="dbus-glib-DBusGError.html#DBUS-GERROR-TIMED-OUT:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_MATCH_RULE_NOT_FOUND" link="dbus-glib-DBusGError.html#DBUS-GERROR-MATCH-RULE-NOT-FOUND:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_MATCH_RULE_INVALID" link="dbus-glib-DBusGError.html#DBUS-GERROR-MATCH-RULE-INVALID:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_SPAWN_EXEC_FAILED" link="dbus-glib-DBusGError.html#DBUS-GERROR-SPAWN-EXEC-FAILED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_SPAWN_FORK_FAILED" link="dbus-glib-DBusGError.html#DBUS-GERROR-SPAWN-FORK-FAILED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_SPAWN_CHILD_EXITED" link="dbus-glib-DBusGError.html#DBUS-GERROR-SPAWN-CHILD-EXITED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_SPAWN_CHILD_SIGNALED" link="dbus-glib-DBusGError.html#DBUS-GERROR-SPAWN-CHILD-SIGNALED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_SPAWN_FAILED" link="dbus-glib-DBusGError.html#DBUS-GERROR-SPAWN-FAILED:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_UNIX_PROCESS_ID_UNKNOWN" link="dbus-glib-DBusGError.html#DBUS-GERROR-UNIX-PROCESS-ID-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_INVALID_SIGNATURE" link="dbus-glib-DBusGError.html#DBUS-GERROR-INVALID-SIGNATURE:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_INVALID_FILE_CONTENT" link="dbus-glib-DBusGError.html#DBUS-GERROR-INVALID-FILE-CONTENT:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_SELINUX_SECURITY_CONTEXT_UNKNOWN" link="dbus-glib-DBusGError.html#DBUS-GERROR-SELINUX-SECURITY-CONTEXT-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="DBUS_GERROR_REMOTE_EXCEPTION" link="dbus-glib-DBusGError.html#DBUS-GERROR-REMOTE-EXCEPTION:CAPS"/>
   </functions>
 </book>
