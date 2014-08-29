@@ -47,7 +47,10 @@ maintainer-upload-release:
 	gpg --verify @PACKAGE@-@VERSION@.tar.gz.asc
 	rsync -vzP @PACKAGE@-@VERSION@.tar.gz dbus.freedesktop.org:/srv/dbus.freedesktop.org/www/releases/@PACKAGE@/@PACKAGE@-@VERSION@.tar.gz
 	rsync -vzP @PACKAGE@-@VERSION@.tar.gz.asc dbus.freedesktop.org:/srv/dbus.freedesktop.org/www/releases/@PACKAGE@/@PACKAGE@-@VERSION@.tar.gz.asc
-	rsync -rvzPp --chmod=Dg+s,ug+rwX,o=rX $(srcdir)/docs/reference/html/ \
+	rsync -rvzPp --chmod=Dg+s,ug+rwX,o=rX doc/reference/html/ \
 	dbus.freedesktop.org:/srv/dbus.freedesktop.org/www/doc/@PACKAGE@/
+
+check-valgrind: all
+	$(MAKE) -C test check-valgrind
 
 include tools/lcov.am

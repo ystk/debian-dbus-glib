@@ -103,6 +103,9 @@ void             dbus_g_thread_init (void);
 
 DBusGConnection* dbus_g_connection_open (const gchar  *address,
                                          GError      **error);
+DBusGConnection* dbus_g_connection_open_private (const gchar  *address,
+                                                 GMainContext *context,
+                                                 GError      **error);
 DBusGConnection* dbus_g_bus_get         (DBusBusType   type,
                                          GError      **error);
 DBusGConnection* dbus_g_bus_get_private (DBusBusType   type,
@@ -325,6 +328,8 @@ typedef struct _DBusGMethodInvocation DBusGMethodInvocation;
 void              dbus_g_method_return               (DBusGMethodInvocation *context, ...);
 
 void              dbus_g_method_return_error         (DBusGMethodInvocation *context, const GError *error);
+
+DBusGConnection * dbus_g_method_invocation_get_g_connection (DBusGMethodInvocation *context);
 
 /* Probably possible to replace this with a closure */
 typedef struct {

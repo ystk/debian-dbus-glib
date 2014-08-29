@@ -1,14 +1,14 @@
 dnl -*- mode: m4 -*-
 AC_PREREQ(2.52)
 
-AC_INIT([dbus-glib], [0.100.2],
+AC_INIT([dbus-glib], [0.102],
   [https://bugs.freedesktop.org/enter_bug.cgi?product=dbus&component=GLib])
 
 AC_CANONICAL_HOST
 
 AM_INIT_AUTOMAKE([1.9])
 
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS(config.h)
 
 # Honor aclocal flags
 ACLOCAL="$ACLOCAL $ACLOCAL_FLAGS"
@@ -47,9 +47,6 @@ AC_HEADER_STDC
 
 AC_ARG_ENABLE(tests, AS_HELP_STRING([--enable-tests],[enable unit test code]),enable_tests=$enableval,enable_tests=$USE_MAINTAINER_MODE)
 AC_ARG_ENABLE(ansi, AS_HELP_STRING([--enable-ansi],[enable -ansi -pedantic gcc flags]),enable_ansi=$enableval,enable_ansi=no)
-AC_ARG_ENABLE(verbose-mode, AS_HELP_STRING([--enable-verbose-mode],[support verbose debug mode]),enable_verbose_mode=$enableval,enable_verbose_mode=$USE_MAINTAINER_MODE)
-AC_ARG_ENABLE(asserts, AS_HELP_STRING([--enable-asserts],[include assertion checks]),enable_asserts=$enableval,enable_asserts=$USE_MAINTAINER_MODE)
-AC_ARG_ENABLE(checks, AS_HELP_STRING([--enable-checks],[include sanity checks on public API]),enable_checks=$enableval,enable_checks=yes)
 AC_ARG_ENABLE(gcov, AS_HELP_STRING([--enable-gcov],[compile with coverage profiling instrumentation (gcc only)]),enable_gcov=$enableval,enable_gcov=no)
 AC_ARG_ENABLE(bash-completion, AS_HELP_STRING([--enable-bash-completion],[install bash completion scripts]),enable_bash_completion=$enableval,enable_bash_completion=yes)
 AC_ARG_WITH(test-socket-dir, AS_HELP_STRING([--with-test-socket-dir=[dirname]],[Where to put sockets for make check]))
@@ -61,10 +58,6 @@ AC_ARG_WITH(introspect-xml, AS_HELP_STRING([--with-introspect-xml=[filename]],[P
 AM_CONDITIONAL(DBUS_BASH_COMPLETION, test x$enable_bash_completion = xyes)
 if test x$enable_bash_completion = xyes; then
   AC_DEFINE(DBUS_BASH_COMPLETION,1,[Enable bash completion])
-fi
-
-if test x$enable_verbose_mode = xyes; then
-    AC_DEFINE(DBUS_ENABLE_VERBOSE_MODE,1,[Support a verbose mode])
 fi
 
 AC_ARG_WITH(dbus-binding-tool,
@@ -80,16 +73,18 @@ if test x$enable_tests = xyes; then
     AC_DEFINE(DBUS_BUILD_TESTS,1,[Build test code])
 fi
 
-if test x$enable_verbose_mode = xyes; then
-    AC_DEFINE(DBUS_ENABLE_VERBOSE_MODE,1,[Support a verbose mode])
-fi
+AC_ARG_ENABLE([asserts],
+  [AS_HELP_STRING([--enable-asserts], [include assertion checks])],
+  [enable_asserts=$enableval], [enable_asserts=$USE_MAINTAINER_MODE])
 if test x$enable_asserts = xno; then
-    AC_DEFINE(DBUS_DISABLE_ASSERT,1,[Disable assertion checking])
-    AC_DEFINE(G_DISABLE_ASSERT,1,[Disable GLib assertion macros])
+    AC_DEFINE([G_DISABLE_ASSERT], [1], [Disable GLib assertion macros])
 fi
+
+AC_ARG_ENABLE([checks],
+  [AS_HELP_STRING([--enable-checks], [include sanity checks on public API])],
+  [enable_checks=$enableval], [enable_checks=yes])
 if test x$enable_checks = xno; then
-    AC_DEFINE(DBUS_DISABLE_CHECKS,1,[Disable public API sanity checking])
-    AC_DEFINE(G_DISABLE_CHECKS,1,[Disable GLib public API sanity checking])
+    AC_DEFINE([G_DISABLE_CHECKS], [1], [Disable GLib public API sanity checking])
 fi
 
 #### gcc warning flags
@@ -247,73 +242,6 @@ if test "x$dbus_have_socklen_t" = "xyes"; then
     AC_DEFINE(HAVE_SOCKLEN_T,1,[Have socklen_t type])
 fi
 
-#### Abstract sockets
-
-AC_LANG_PUSH(C)
-AC_CACHE_CHECK([abstract socket namespace],
-		ac_cv_have_abstract_sockets,
-		[AC_RUN_IFELSE([AC_LANG_PROGRAM(
-[[
-#include <sys/types.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include <sys/socket.h>
-#include <sys/un.h>
-#include <errno.h>
-]],
-[[
-  int listen_fd;
-  struct sockaddr_un addr;
-  
-  listen_fd = socket (PF_UNIX, SOCK_STREAM, 0);
-  
-  if (listen_fd < 0)
-    {
-      fprintf (stderr, "socket() failed: %s\n", strerror (errno));
-      exit (1);
-    }
-
-  memset (&addr, '\0', sizeof (addr));
-  addr.sun_family = AF_UNIX;
-  strcpy (addr.sun_path, "X/tmp/dbus-fake-socket-path-used-in-configure-test");
-  addr.sun_path[0] = '\0'; /* this is what makes it abstract */
-  
-  if (bind (listen_fd, (struct sockaddr*) &addr, SUN_LEN (&addr)) < 0)
-    {
-       fprintf (stderr, "Abstract socket namespace bind() failed: %s\n", 
-                strerror (errno));
-       exit (1);
-    }
-  else 
-    exit (0);
-]])],
-              [ac_cv_have_abstract_sockets=yes],
-              [ac_cv_have_abstract_sockets=no]
-)])
-AC_LANG_POP(C)
-
-if test x$enable_abstract_sockets = xyes; then
-    if test x$ac_cv_have_abstract_sockets = xno; then
-	AC_MSG_ERROR([Abstract sockets explicitly required, and support not detected.])
-    fi
-fi
-
-if test x$enable_abstract_sockets = xno; then
-   ac_cv_have_abstract_sockets=no;
-fi
-
-if test x$ac_cv_have_abstract_sockets = xyes ; then
-   DBUS_PATH_OR_ABSTRACT=abstract
-   AC_DEFINE(HAVE_ABSTRACT_SOCKETS,1,[Have abstract socket namespace])
-else
-   DBUS_PATH_OR_ABSTRACT=path
-fi
-
-# this is used in addresses to prefer abstract, e.g. 
-# unix:path=/foo or unix:abstract=/foo 
-AC_SUBST(DBUS_PATH_OR_ABSTRACT)
-
 #### Sort out XML library
 
 # see what we have
@@ -357,84 +285,6 @@ AC_SUBST(DBUS_GLIB_TOOL_LIBS)
 ### gtk-doc Documentation
 GTK_DOC_CHECK(1.4)
 
-#### Have to go $localstatedir->$prefix/var->/usr/local/var   
-#### someone please fix this a better way...
-
-#### find the actual value for $prefix that we'll end up with
-##   (I know this is broken and should be done in the Makefile, but
-##    that's a major pain and almost nobody actually seems to care)
-REAL_PREFIX=
-if test "x$prefix" = "xNONE"; then
-  REAL_PREFIX=$ac_default_prefix
-else
-  REAL_PREFIX=$prefix
-fi
-
-## temporarily change prefix and exec_prefix
-old_prefix=$prefix
-prefix=$REAL_PREFIX
-
-if test "x$exec_prefix" = xNONE ; then
-   REAL_EXEC_PREFIX=$REAL_PREFIX
-else
-   REAL_EXEC_PREFIX=$exec_prefix
-fi
-old_exec_prefix=$exec_prefix
-exec_prefix=$REAL_EXEC_PREFIX
-
-## eval everything
-LOCALSTATEDIR_TMP="$localstatedir"
-EXPANDED_LOCALSTATEDIR=`eval echo $LOCALSTATEDIR_TMP`
-AC_SUBST(EXPANDED_LOCALSTATEDIR)
-
-SYSCONFDIR_TMP="$sysconfdir"
-EXPANDED_SYSCONFDIR=`eval echo $SYSCONFDIR_TMP`
-AC_SUBST(EXPANDED_SYSCONFDIR)
-
-BINDIR_TMP="$bindir"
-EXPANDED_BINDIR=`eval echo $BINDIR_TMP`
-AC_SUBST(EXPANDED_BINDIR)
-
-LIBDIR_TMP="$libdir"
-EXPANDED_LIBDIR=`eval echo $LIBDIR_TMP`
-AC_SUBST(EXPANDED_LIBDIR)
-
-DATADIR_TMP="$datadir"
-EXPANDED_DATADIR=`eval echo $DATADIR_TMP`
-AC_SUBST(EXPANDED_DATADIR)
-
-## put prefix and exec_prefix back
-prefix=$old_prefix
-exec_prefix=$old_exec_prefix
-
-#### Tell tests where to find certain stuff in builddir
-ABSOLUTE_TOP_BUILDDIR=`cd ${ac_top_builddir}. && pwd`
-
-AC_DEFUN([TEST_PATH], [
-TEST_$1=${ABSOLUTE_TOP_BUILDDIR}/test/$2
-AC_DEFINE_UNQUOTED(TEST_$1, "$TEST_$1",
-                   [Full path to test file test/$2 in builddir])
-AC_SUBST(TEST_$1)
-])
-
-TEST_PATH(SERVICE_DIR, data/valid-service-files)
-TEST_PATH(SERVICE_BINARY, test-service)
-TEST_PATH(SHELL_SERVICE_BINARY, test-shell-service)
-TEST_PATH(CORE_SERVICE_BINARY, core/test-service-glib)
-TEST_PATH(INTERFACES_SERVICE_BINARY, interfaces/test-service)
-TEST_PATH(EXIT_BINARY, test-exit)
-TEST_PATH(SEGFAULT_BINARY, test-segfault)
-TEST_PATH(SLEEP_FOREVER_BINARY, test-sleep-forever)
-AC_SUBST(ABSOLUTE_TOP_BUILDDIR)
-
-if ! test -z "$with_test_socket_dir" ; then
-   TEST_SOCKET_DIR="$with_test_socket_dir"
-else
-   TEST_SOCKET_DIR=$DEFAULT_SOCKET_DIR
-fi
-AC_SUBST(TEST_SOCKET_DIR)
-AC_DEFINE_UNQUOTED(DBUS_TEST_SOCKET_DIR, "$TEST_SOCKET_DIR", [Where to put test sockets])
-
 AC_OUTPUT([
 Makefile
 m4/Makefile
@@ -464,11 +314,6 @@ echo "
 
 	prefix:                   ${prefix}
 	exec_prefix:              ${exec_prefix}
-        libdir:                   ${EXPANDED_LIBDIR}
-        bindir:                   ${EXPANDED_BINDIR}
-        sysconfdir:               ${EXPANDED_SYSCONFDIR}
-        localstatedir:            ${EXPANDED_LOCALSTATEDIR}
-	datadir:                  ${EXPANDED_DATADIR}
 	source code location:	  ${srcdir}
 	compiler:		  ${CC}
 	cflags:		          ${CFLAGS}
@@ -479,13 +324,11 @@ echo "
         Maintainer mode:          ${USE_MAINTAINER_MODE}
         gcc coverage profiling:   ${enable_gcov}
         Building unit tests:      ${enable_tests}
-        Building verbose mode:    ${enable_verbose_mode}
         Building assertions:      ${enable_asserts}
         Building checks:          ${enable_checks}
         Building Gtk-doc docs:    ${enable_gtk_doc}
         Bash Completion:          ${enable_bash_completion}
         Using XML parser:         ${with_xml}
-        'make check' socket dir:  ${TEST_SOCKET_DIR}
 "
 
 if test x$enable_tests = xyes; then
@@ -496,9 +339,6 @@ if test x$enable_tests = xyes -a x$enable_asserts = xno; then
 fi
 if test x$enable_gcov = xyes; then
         echo "NOTE: building with coverage profiling is definitely for developers only."
-fi
-if test x$enable_verbose_mode = xyes; then
-        echo "NOTE: building with verbose mode increases library size, may slightly increase security risk, and decreases performance."
 fi
 if test x$enable_asserts = xyes; then
         echo "NOTE: building with assertions increases library size and decreases performance."

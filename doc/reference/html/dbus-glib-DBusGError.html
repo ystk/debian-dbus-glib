@@ -3,12 +3,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>DBusGError</title>
-<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="D-Bus GLib bindings - Reference Manual">
 <link rel="up" href="ch02.html" title="API Reference">
 <link rel="prev" href="dbus-glib-DBusGMethod.html" title="DBusGMethod">
 <link rel="next" href="dbus-glib-DBusGProxy.html" title="DBusGProxy">
-<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -105,6 +105,179 @@ A <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.htm
 can be found by looking at the comments for the corresponding constants
 in dbus-protocol.h.
 </p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="DBUS-GERROR-FAILED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_FAILED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-NO-MEMORY:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_NO_MEMORY</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-SERVICE-UNKNOWN:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_SERVICE_UNKNOWN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-NAME-HAS-NO-OWNER:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_NAME_HAS_NO_OWNER</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-NO-REPLY:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_NO_REPLY</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-IO-ERROR:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_IO_ERROR</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-BAD-ADDRESS:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_BAD_ADDRESS</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-NOT-SUPPORTED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_NOT_SUPPORTED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-LIMITS-EXCEEDED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_LIMITS_EXCEEDED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-ACCESS-DENIED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_ACCESS_DENIED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-AUTH-FAILED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_AUTH_FAILED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-NO-SERVER:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_NO_SERVER</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-TIMEOUT:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_TIMEOUT</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-NO-NETWORK:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_NO_NETWORK</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-ADDRESS-IN-USE:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_ADDRESS_IN_USE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-DISCONNECTED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_DISCONNECTED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-INVALID-ARGS:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_INVALID_ARGS</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-FILE-NOT-FOUND:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_FILE_NOT_FOUND</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-FILE-EXISTS:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_FILE_EXISTS</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-UNKNOWN-METHOD:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_UNKNOWN_METHOD</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-TIMED-OUT:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_TIMED_OUT</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-MATCH-RULE-NOT-FOUND:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_MATCH_RULE_NOT_FOUND</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-MATCH-RULE-INVALID:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_MATCH_RULE_INVALID</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-SPAWN-EXEC-FAILED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_SPAWN_EXEC_FAILED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-SPAWN-FORK-FAILED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_SPAWN_FORK_FAILED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-SPAWN-CHILD-EXITED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_SPAWN_CHILD_EXITED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-SPAWN-CHILD-SIGNALED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_SPAWN_CHILD_SIGNALED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-SPAWN-FAILED:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_SPAWN_FAILED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-UNIX-PROCESS-ID-UNKNOWN:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_UNIX_PROCESS_ID_UNKNOWN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-INVALID-SIGNATURE:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_INVALID_SIGNATURE</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-INVALID-FILE-CONTENT:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_INVALID_FILE_CONTENT</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-SELINUX-SECURITY-CONTEXT-UNKNOWN:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_SELINUX_SECURITY_CONTEXT_UNKNOWN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="DBUS-GERROR-REMOTE-EXCEPTION:CAPS"></a><span class="term"><code class="literal">DBUS_GERROR_REMOTE_EXCEPTION</code></span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <hr>
 <div class="refsect2">
@@ -118,10 +291,13 @@ the given name.  This function is intended to be invoked on a
 <a class="link" href="dbus-glib-DBusGProxy.html#dbus-g-proxy-end-call" title="dbus_g_proxy_end_call ()"><code class="function">dbus_g_proxy_end_call()</code></a>.  It will silently return <a href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#FALSE:CAPS"><code class="literal">FALSE</code></a> for errors
 which are not remote D-BUS exceptions (i.e. with a domain other
 than <a class="link" href="dbus-glib-DBusGError.html#DBUS-GERROR:CAPS" title="DBUS_GERROR"><code class="literal">DBUS_GERROR</code></a> or a code other than
-<code class="literal">DBUS_GERROR_REMOTE_EXCEPTION</code>).
+<a class="link" href="dbus-glib-DBusGError.html#DBUS-GERROR-REMOTE-EXCEPTION:CAPS"><code class="literal">DBUS_GERROR_REMOTE_EXCEPTION</code></a>).
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
@@ -147,10 +323,13 @@ than <a class="link" href="dbus-glib-DBusGError.html#DBUS-GERROR:CAPS" title="DB
 This function may only be invoked on a <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"><span class="type">GError</span></a> returned from an
 invocation of a remote method, e.g. via <a class="link" href="dbus-glib-DBusGProxy.html#dbus-g-proxy-end-call" title="dbus_g_proxy_end_call ()"><code class="function">dbus_g_proxy_end_call()</code></a>.
 Moreover, you must ensure that the error's domain is <a class="link" href="dbus-glib-DBusGError.html#DBUS-GERROR:CAPS" title="DBUS_GERROR"><code class="literal">DBUS_GERROR</code></a>,
-and the code is <code class="literal">DBUS_GERROR_REMOTE_EXCEPTION</code>.
+and the code is <a class="link" href="dbus-glib-DBusGError.html#DBUS-GERROR-REMOTE-EXCEPTION:CAPS"><code class="literal">DBUS_GERROR_REMOTE_EXCEPTION</code></a>.
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
@@ -197,8 +376,11 @@ will be used.
 instead, then the D-Bus error string would be
 <code class="code">com.example.MyObject.NotHappy</code>.)
 </p>
-<div class="variablelist"><table border="0">
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
 <col align="left" valign="top">
+<col>
+</colgroup>
 <tbody>
 <tr>
 <td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
@@ -234,6 +416,6 @@ for use with <a href="http://library.gnome.org/devel/glib/unstable/glib-Error-Re
 </div>
 <div class="footer">
 <hr>
-          Generated by GTK-Doc V1.18</div>
+          Generated by GTK-Doc V1.19</div>
 </body>
 </html>
